@@ -1,0 +1,32 @@
+@import "../styles/global.scss";
+
+
+
+.#{$name-tag}-HeroSection {
+
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &__title {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        color: $theme-font-color ;
+        font-size: $theme-font-size-larg;
+        z-index: 1;
+    }
+
+
+
+
+}
+
+
+
+

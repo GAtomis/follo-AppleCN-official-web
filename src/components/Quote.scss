@@ -1,0 +1,106 @@
+@import "../styles/global.scss";
+
+@keyframes moveup {
+    100% {
+        transform: translateY(0);
+    }
+}
+
+.#{$name-tag}-section {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+
+    &__title {
+        position: absolute;
+        top: 2rem;
+        left: 2rem;
+        color: $theme-font-color ;
+        font-size: $theme-font-size-larg;
+        z-index: 1;
+    }
+
+    &__textContainer {
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        background-image: linear-gradient(-45deg, #129835, #c81ea1 25%, #129835 50%, #F9E92B 75%, rgb(40, 150, 38));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        z-index: 1;
+
+        span {
+            // color: #fff;
+            font-size: 40px;
+            font-weight: 600;
+            text-transform: uppercase;
+            padding: 2rem;
+        }
+
+    }
+
+    &__describeContainer {
+        width: 100vw;
+        height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: var(--dark);
+        color: var(--white);
+
+        p {
+            width: 60%;
+            font-size: var(--fontxl);
+            position: relative;
+            height: var(--fontmd);
+            overflow: hidden;
+
+            span {
+                // background-color: lightblue;
+                position: absolute;
+                transform: translateY(4rem);
+                animation-name: moveup;
+                animation-duration: 2.5s;
+                animation-timing-function:ease ;
+                animation-fill-mode: forwards;
+                font-family: var(--fontL);
+                background-image: linear-gradient(-45deg,var(--gradient));
+                background-clip:text;
+                -webkit-background-clip: text;
+                -webkit-text-fill-color: transparent;
+                
+            }
+
+        }
+
+
+
+    }
+
+    &__videoContainer {
+        width: 100vw;
+        height: 100vh;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        z-index: 0;
+
+        video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+
+}
