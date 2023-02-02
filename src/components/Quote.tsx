@@ -2,14 +2,16 @@
  * @Author: GAtomis 850680822@qq.com
  * @Date: 2023-01-31 22:01:21
  * @LastEditors: GAtomis
- * @LastEditTime: 2023-02-01 19:11:07
+ * @LastEditTime: 2023-02-02 14:46:29
  * @Description: Quote 引用片段
  */
 import React from 'react'
 import './Quote.scss'
 import { useNamespace } from '@/hooks/use-namespace'
 import phoneVd from "@/assets/video/iphone14_vd.mp4"
-export default function Demo() {
+
+import useGsap from '@/hooks/use-gsap'
+export default function Quote() {
   const sn = useNamespace("section")
 
   
