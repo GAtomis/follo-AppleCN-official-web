@@ -4,11 +4,14 @@
 
 .#{$name-tag}-HeroSection {
 
-
     width: 100vw;
     height: 100vh;
-    display: flex;
     position: relative;
+  
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+  
     background-color: var(--dark);
     overflow: hidden;
 
@@ -48,6 +51,13 @@
             font-weight: 600;
             text-transform: uppercase;
             padding: 2rem;
+            @media screen and (max-width: 64em) {
+                font-size: var(--fontxxl);
+                padding: 0;
+              }
+              @media screen and (max-width: 48em) {
+                font-size: var(--fontxl);
+              }
         }
 
         @media screen and (max-width: 48em) {
