@@ -69,7 +69,7 @@
             align-items: flex-start;
             filter: brightness(1.1);
 
-            &>*:last-child {
+            & > *:last-child {
                 align-self: flex-end;
             }
 

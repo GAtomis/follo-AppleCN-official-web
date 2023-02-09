@@ -2,37 +2,35 @@
  * @Author: GAtomis 850680822@qq.com
  * @Date: 2023-01-31 22:01:21
  * @LastEditors: GAtomis
- * @LastEditTime: 2023-02-03 18:12:11
+ * @LastEditTime: 2023-02-04 11:04:00
  * @Description: Quote 引用片段
  */
 import React, { useLayoutEffect, useRef } from 'react'
 import './Quote.scss'
 import { useNamespace } from '@/hooks/use-namespace'
-
+import gsap from "gsap";
 
 import useGsap from '@/hooks/use-gsap'
-import ScrollTrigger from "gsap/ScrollTrigger"
+import ScrollTrigger from "gsap/ScrollTrigger";
 export default function Quote() {
   const sn = useNamespace("section")
   const wrapRef = useRef(null)
-  const gsap = useGsap()
+  // const gsap = useGsap()
   gsap.registerPlugin(ScrollTrigger)
 
   useLayoutEffect(() => {
     console.log(wrapRef.current);
     ScrollTrigger.create({
       trigger: "#Quote"||wrapRef.current,
-      start: "top top", // 当触发器的顶部碰到视口的顶部时
+      start: "top+=20 top", // 当触发器的顶部碰到视口的顶部时
       // end: "bootom-=100 center",
       pin: true,//滚动时锁定触发元素
-      markers: true,
+      markers:true
     })
   }, [])
 
 
   return (
-
-   
       <section id='Quote' className={sn.b()} ref={wrapRef} >
         <div className={sn.e("describeContainer")}>
           <p><span style={{ animationDelay: '0s' }} >灵动的 iPhone 新玩法，迎面而来。重</span></p>
@@ -42,7 +40,5 @@ export default function Quote() {
           <p><span style={{ animationDelay: `${0.4 * 5}s` }}>之王，为一切提供强大原动力。</span></p>
         </div>
       </section>
-     
-
   )
 }
