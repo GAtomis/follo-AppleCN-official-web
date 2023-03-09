@@ -2,7 +2,7 @@
  * @Author: GAtomis 850680822@qq.com
  * @Date: 2023-01-31 22:01:21
  * @LastEditors: GAtomis
- * @LastEditTime: 2023-02-04 11:04:00
+ * @LastEditTime: 2023-02-15 00:27:34
  * @Description: Quote 引用片段
  */
 import React, { useLayoutEffect, useRef } from 'react'
@@ -22,12 +22,20 @@ export default function Quote() {
     console.log(wrapRef.current);
     ScrollTrigger.create({
       trigger: "#Quote"||wrapRef.current,
-      start: "top+=20 top", // 当触发器的顶部碰到视口的顶部时
-      // end: "bootom-=100 center",
-      pin: true,//滚动时锁定触发元素
+      start: "top top",
+      pin: true,
+      pinSpacing: false,
       markers:true
     })
+
+
+
+
   }, [])
+
+
+
+
 
 
   return (

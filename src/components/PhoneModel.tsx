@@ -1,4 +1,4 @@
-import React, { Suspense, useEffect } from 'react'
+import React, { Suspense,  useLayoutEffect } from 'react'
 import "./PhoneModel.scss"
 import { useNamespace } from '@/hooks/use-namespace'
 import * as THREE from "three"
@@ -6,19 +6,37 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { RGBELoader } from 'three/examples/jsm/loaders/RGBELoader';
 import { DRACOLoader } from 'three/examples/jsm/loaders/DRACOLoader';
-import useGui from '@/hooks/use-gui'
+
+import gsap from "gsap";
+import useGsap from '@/hooks/use-gsap'
 
 
 function PhoneModel() {
-  useEffect(() => {
+
+  const runAnimation = ()=>{
+    let t1 = gsap.timeline({
+      scrollTrigger:{
+        trigger:"#canvas",
+        start:"top top",
+        end:"bottom+=500 bottom",
+        markers:true
+
+      }
+    })
+    t1.fromTo(camera.position,{y:2},{y:0})
+
+
+  }
+  useLayoutEffect(() => {
     //渲染dom
     const warp = document.getElementById("canvas")
     warp?.appendChild(renderer.domElement)
     /****初始化结束 */
-    //创建轨道控制器
-    controls = new OrbitControls(camera, renderer.domElement)
-    //设置控制器阻尼
-    controls.enableDamping = true
+    // //创建轨道控制器
+    // controls = new OrbitControls(camera, renderer.domElement)
+    // //设置控制器阻尼
+    // controls.enableDamping = true
+    runAnimation()
     loadModel()
     render()
     setAxesHelper()
@@ -27,6 +45,7 @@ function PhoneModel() {
 
     }
   }, [])
+  
 
 
   const winWidth = window.innerWidth / 5,
@@ -135,10 +154,9 @@ function PhoneModel() {
 
       iphone.scale.set(6, 6, 6)
 
-      useGui(gui => {
-
-        gui.add(iphone.rotation, "y", 0, Math.PI * 2, Math.PI / 36).name("手机旋转")
-      })
+      // useGui(gui => {
+      //   gui.add(iphone.rotation, "y", 0, Math.PI * 2, Math.PI / 36).name("手机旋转")
+      // })
       scene.add(iphone)
     })
   }

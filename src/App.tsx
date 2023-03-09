@@ -2,7 +2,7 @@
  * @Author: GAtomis 850680822@qq.com
  * @Date: 2023-01-31 21:48:06
  * @LastEditors: GAtomis
- * @LastEditTime: 2023-02-04 00:12:34
+ * @LastEditTime: 2023-02-15 00:51:12
  * @Description: main
  */
 import { useState } from 'react'
@@ -15,7 +15,7 @@ function App() {
   return (
     <div className="App">
       <Quote></Quote>
-          {/* <PhoneModel></PhoneModel> */}
+      <PhoneModel></PhoneModel>
       <HeroSection></HeroSection>
   
       
